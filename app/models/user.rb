@@ -18,19 +18,19 @@ class User < ApplicationRecord
   end
 
   def inbound_messages
-    Message.where("recipient_id == ?", id).order('created_at DESC')
+    Message.where("recipient_id = ?", id).order('created_at DESC')
   end
 
   def outbound_messages
-    Message.where("sender_id == ?", id).order('updated_at DESC')
+    Message.where("sender_id = ?", id).order('updated_at DESC')
   end
 
   def inbound_unread_messages_count
-    Message.where("recipient_id == ? and status = 'unread'", id).size
+    Message.where("recipient_id = ? and status = 'unread'", id).size
   end
 
   def outbound_unread_messages_count
-    Message.where("sender_id == ? and status = 'unread'", id).size
+    Message.where("sender_id = ? and status = 'unread'", id).size
   end
 
   def image_url
