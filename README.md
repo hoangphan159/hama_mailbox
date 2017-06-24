@@ -4,9 +4,9 @@
 
 Submitted by: **Hoang Phan**
 
-Time spent: **X** hours
+Time spent: **16** hours
 
-URL: **Insert your Heroku URL here**
+URL: **https://hamachat.herokuapp.com/**
 
 ## User Stories
 
