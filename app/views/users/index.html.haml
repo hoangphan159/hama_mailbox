@@ -1,0 +1,18 @@
+%section.row-section
+  .container
+    .row
+      %h2.text-center Make a Friend <3
+    .col-md-10.offset-md-1.row-block
+      %ul#friendship
+        - @users.each do |user|
+          %li
+            .media
+              .media-left.align-self-center
+                %img.rounded-circle{:src => user.image_url}
+              .media-body
+                %h4= user.name
+              .media-right.align-self-center
+                - if @current_user.all_friends.include?(user)
+                  =link_to "Sent Message", new_message_path(:recipient_id => user.id), class: "btn btn-default"
+                - else
+                  =link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post, class: "btn btn-default"

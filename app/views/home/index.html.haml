@@ -1,0 +1,27 @@
+#myCarousel.carousel.slide{"data-ride" => "carousel"}
+  %ol.carousel-indicators
+    %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+    %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+  .carousel-inner{:role => "listbox"}
+    .carousel-item.active
+      %img.first-slide{:alt => "First slide", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="}/
+      .container
+        .carousel-caption.d-none.d-md-block.text-left
+          %h1 Hama Message
+          %p Stay connect, stay fun <3
+          %p
+            %a.btn.btn-lg.btn-primary{:href => new_user_path, :role => "button"} Sign up today
+    .carousel-item
+      %img.second-slide{:alt => "Second slide", :src => "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="}/
+      .container
+        .carousel-caption.d-none.d-md-block
+          %h1 Make friends and have fun
+          %p Easy to connect to all people around the world
+          %p
+            %a.btn.btn-lg.btn-primary{:href => "#", :role => "button"} Learn more
+  %a.carousel-control-prev{"data-slide" => "prev", :href => "#myCarousel", :role => "button"}
+    %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+    %span.sr-only Previous
+  %a.carousel-control-next{"data-slide" => "next", :href => "#myCarousel", :role => "button"}
+    %span.carousel-control-next-icon{"aria-hidden" => "true"}
+    %span.sr-only Next

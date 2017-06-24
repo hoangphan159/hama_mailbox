@@ -1,0 +1,14 @@
+.card
+  .card-block.inbox-menu
+    %a.btn.btn-danger.btn-block{:href => new_message_path} New Message
+    %ul
+      %li
+        %a{:href => messages_path(:type => 'inbox')}
+          %i.fa.fa-inbox
+          Inbox
+          %span.badge.badge-danger= @current_user.inbound_unread_messages_count
+      %li
+        %a{:href => messages_path(:type => 'sent')}
+          %i.fa.fa-rocket
+          Sent
+          %span.badge.badge-warning= @current_user.outbound_unread_messages_count

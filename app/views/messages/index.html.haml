@@ -1,0 +1,15 @@
+.container
+  .row.inbox
+    .col-md-3
+      = render 'messages/left_pannel'
+    .col-md-9
+      .card
+        .card-block.inbox
+          %h4.card-title= params['type'] == 'inbox' ? "Inbox" : "Sent"
+          %table.table.table-inbox.table-hover
+            %tbody
+              -@messages.each do |message|
+                %tr{:class => message.status}
+                  %td.view-message.dont-show= params['type'] == 'inbox' ? message.sender.name : message.recipient.name
+                  %td.view-message= message.subject
+                  %td.view-message.text-right= time_ago_in_words(message.created_at)

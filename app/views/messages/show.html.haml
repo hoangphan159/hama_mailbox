@@ -1,0 +1,14 @@
+.container
+  .row
+    .row-md-3
+      .mail-sidebar-row
+    .row-md-6
+      .mail-body
+        .mail-header
+          %h3.mail-title= @message.subject
+
+        .mail-info
+          .mail-sender
+          .mail-date
+
+        .mail-text= @message.body

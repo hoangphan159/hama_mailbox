@@ -1,0 +1,32 @@
+.container
+  .row.inbox
+    .col-md-3
+      = render 'messages/left_pannel'
+    .col-md-9
+      .panel.panel-default
+        .panel-body.message
+          .card
+            .card-block
+              .card-title
+                %h6.text-center New Message
+
+              = form_for @message, html: {class: "form-horizontal", role: "form"} do |f|
+
+                .form-group.row
+                  - friends_array = @current_user.all_friends.map { |friend| [friend.email, friend.id]}
+                  = f.label :recipient, "To:", class: "col-sm-2 control-label"
+                  .col-sm-8
+                    = f.collection_select :recipient_id, @current_user.all_friends, :id, :email, {}, {:class => "form-control"}
+
+                .form-group.row
+                  = f.label :subject, "Subject:", class: "col-sm-2 control-label"
+                  .col-sm-8
+                    = f.text_field :subject, class: "form-control"
+
+                .form-group.row
+                  .col-sm-11.col-sm-offset-1
+                    .form-group
+                      = f.text_area :body, class: "form-control", cols: 60, rows: 20
+
+                    .form-group
+                      = f.submit "Sent", class: "btn btn-success"
