@@ -9,7 +9,7 @@
           %table.table.table-inbox.table-hover
             %tbody
               -@messages.each do |message|
-                %tr{:class => message.status}
+                %tr{:class => message.status, :onclick => "window.location = '#{message_path(message)}'"}
                   %td.view-message.dont-show= params['type'] == 'inbox' ? message.sender.name : message.recipient.name
                   %td.view-message= message.subject
                   %td.view-message.text-right= time_ago_in_words(message.created_at)
